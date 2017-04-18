@@ -78,4 +78,9 @@ public class ClubDto {
 		this.enabled = enabled;
 	}
 
+	@Override
+	public String toString() {
+		return "ClubDto [id=" + id + ", name=" + name + ", acronym=" + acronym + ", enabled=" + enabled + "]";
+	}
+
 }
