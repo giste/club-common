@@ -4,6 +4,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.giste.util.dto.NonRemovableDto;
+
 /**
  * DTO object form transfer values between client and server. It has the
  * following fields.
@@ -19,9 +21,9 @@ import javax.validation.constraints.Size;
  * 
  * @author Giste
  */
-public class ClubDto {
+public class ClubDto extends NonRemovableDto {
 
-	private Long id = 0L;
+	private static final long serialVersionUID = -1992057722496454721L;
 
 	@NotNull
 	@Size(min = 3, max = 64)
@@ -31,25 +33,14 @@ public class ClubDto {
 	@Pattern(regexp = "[A-Z0-9]{3,5}")
 	private String acronym;
 
-	private boolean enabled = false;
-
 	public ClubDto() {
 
 	}
 
 	public ClubDto(Long id, String name, String acronym, Boolean enabled) {
-		this.id = id;
+		super(id, enabled);
 		this.name = name;
 		this.setAcronym(acronym);
-		this.enabled = enabled;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -68,14 +59,6 @@ public class ClubDto {
 		if (acronym != null) {
 			this.acronym = acronym.toUpperCase();
 		}
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
 	}
 
 	@Override
