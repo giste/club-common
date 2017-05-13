@@ -37,24 +37,52 @@ public class ClubDto extends NonRemovableDto {
 
 	}
 
+	/**
+	 * Constructs a ClubDto populated with values.
+	 *  
+	 * @param id Identifier of the club.
+	 * @param name Name of the club.
+	 * @param acronym Acronym of the club.
+	 * @param enabled Indication of the enabled state of the club.
+	 */
 	public ClubDto(Long id, String name, String acronym, Boolean enabled) {
 		super(id, enabled);
 		this.name = name;
 		this.setAcronym(acronym);
 	}
 
+	/**
+	 * Gets the club name.
+	 * 
+	 * @return The 
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name of the club.
+	 * 
+	 * @param name The club name.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Gets the acronym of the club.
+	 * 
+	 * @return The acronym of the club.
+	 */
 	public String getAcronym() {
 		return acronym;
 	}
 
+	/**
+	 * Sets the acronym of the club.
+	 * 
+	 * @param acronym The acronym of the club.
+	 */
 	public void setAcronym(String acronym) {
 		if (acronym != null) {
 			this.acronym = acronym.toUpperCase();
