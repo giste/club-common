@@ -39,7 +39,7 @@ public class ClubDto extends NonRemovableDto {
 
 	/**
 	 * Constructs a ClubDto populated with values.
-	 *  
+	 * 
 	 * @param id Identifier of the club.
 	 * @param name Name of the club.
 	 * @param acronym Acronym of the club.
@@ -54,7 +54,7 @@ public class ClubDto extends NonRemovableDto {
 	/**
 	 * Gets the club name.
 	 * 
-	 * @return The 
+	 * @return The
 	 */
 	public String getName() {
 		return name;

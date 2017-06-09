@@ -108,11 +108,11 @@ public class ClubDtoTest {
 		assertEquals("acronym", violation.getPropertyPath().toString());
 		assertEquals("{javax.validation.constraints.Pattern.message}", violation.getMessageTemplate());
 	}
-	
+
 	@Test
 	public void acronymToUpperCase() {
 		ClubDto club = new ClubDto(ID_OK, NAME_OK, ACRONYM_OK.toLowerCase(), false);
-		
+
 		assertThat(club.getAcronym(), is(ACRONYM_OK));
 	}
 
