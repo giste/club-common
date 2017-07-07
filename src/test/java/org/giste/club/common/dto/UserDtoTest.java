@@ -16,6 +16,7 @@ import org.junit.Test;
 public class UserDtoTest {
 	private final static Long ID_OK = 0L;
 	private final static String MAIL_OK = "user@email.org";
+	private final static String NAME_OK = "user";
 	private final static Role ROLE_OK = Role.USER;
 
 	private static Validator validator;
@@ -28,7 +29,7 @@ public class UserDtoTest {
 
 	@Test
 	public void userIsValid() {
-		UserDto user = new UserDto(ID_OK, MAIL_OK, "", ROLE_OK);
+		UserDto user = new UserDto(ID_OK, MAIL_OK, NAME_OK, "", ROLE_OK);
 
 		Set<ConstraintViolation<UserDto>> violations = validator.validate(user);
 		assertEquals(0, violations.size());
@@ -36,7 +37,7 @@ public class UserDtoTest {
 
 	@Test
 	public void mailTooLong() {
-		UserDto user = new UserDto(ID_OK, StringUtil.ofLength(56) + "@" + "mail.org", "", ROLE_OK);
+		UserDto user = new UserDto(ID_OK, StringUtil.ofLength(56) + "@" + "mail.org", NAME_OK, "", ROLE_OK);
 
 		Set<ConstraintViolation<UserDto>> violations = validator.validate(user);
 
@@ -48,11 +49,11 @@ public class UserDtoTest {
 
 	@Test
 	public void parametersAreNull() {
-		UserDto user = new UserDto(null, null, "", null);
+		UserDto user = new UserDto(null, null, null, "", null);
 
 		Set<ConstraintViolation<UserDto>> violations = validator.validate(user);
 
-		assertEquals(2, violations.size());
+		assertEquals(3, violations.size());
 		for (ConstraintViolation<UserDto> violation : violations) {
 			assertEquals("{javax.validation.constraints.NotNull.message}", violation.getMessageTemplate());
 		}
@@ -60,7 +61,7 @@ public class UserDtoTest {
 
 	@Test
 	public void mailInvalid() {
-		UserDto user = new UserDto(ID_OK, StringUtil.ofLength(10), "", ROLE_OK);
+		UserDto user = new UserDto(ID_OK, StringUtil.ofLength(10), NAME_OK, "", ROLE_OK);
 
 		Set<ConstraintViolation<UserDto>> violations = validator.validate(user);
 

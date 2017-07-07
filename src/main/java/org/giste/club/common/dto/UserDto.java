@@ -21,6 +21,10 @@ public class UserDto extends BaseDto {
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 	private String email;
 
+	@NotNull
+	@Size(min = 3, max = 64)
+	private String name;
+	
 	private String passwordHash;
 
 	@NotNull
@@ -38,12 +42,14 @@ public class UserDto extends BaseDto {
 	 * 
 	 * @param id User identifier.
 	 * @param email Mail of the user.
+	 * @param name The user's name.
 	 * @param passwordHash Password hash of the user.
 	 * @param role Role of the user.
 	 */
-	public UserDto(Long id, String email, String passwordHash, Role role) {
+	public UserDto(Long id, String email, String name, String passwordHash, Role role) {
 		super(id);
 		this.email = email;
+		this.name = name;
 		this.passwordHash = passwordHash;
 		this.role = role;
 	}
@@ -64,6 +70,24 @@ public class UserDto extends BaseDto {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	/**
+	 * Gets the user's name.
+	 * 
+	 * @return The user's name.
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Sets the user's name.
+	 * 
+	 * @param name The user's name.
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**
