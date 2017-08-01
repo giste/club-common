@@ -22,7 +22,7 @@ public class CategoryDto extends BaseDto {
 	private static final long serialVersionUID = 274894106349156599L;
 
 	@NotNull
-	@Size(max = 64)
+	@Size(min = 3, max = 64)
 	private String name;
 
 	@Min(0)
