@@ -5,7 +5,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.giste.club.common.dto.validation.MaxAgeGreaterThanMinAge;
+import org.giste.spring.util.validation.IntComparation;
+import org.giste.spring.util.validation.Relationship;
 import org.giste.util.dto.BaseDto;
 
 /**
@@ -16,7 +17,7 @@ import org.giste.util.dto.BaseDto;
  * 
  * @author Giste
  */
-@MaxAgeGreaterThanMinAge
+@IntComparation(field = "maxAge", reference = "minAge", relationship = Relationship.GreaterOrEqual)
 public class CategoryDto extends BaseDto {
 
 	private static final long serialVersionUID = 274894106349156599L;

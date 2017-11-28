@@ -39,7 +39,7 @@ public class CategoryDtoTest {
 	@Test
 	public void nameTooShort() {
 		CategoryDto category = new CategoryDto(ID_OK, StringUtil.ofLength(2), MIN_AGE_OK, MAX_AGE_OK, MIXED_OK);
-		
+
 		Set<ConstraintViolation<CategoryDto>> violations = validator.validate(category);
 
 		assertEquals(1, violations.size());
@@ -47,11 +47,11 @@ public class CategoryDtoTest {
 		assertEquals("name", violation.getPropertyPath().toString());
 		assertEquals("{javax.validation.constraints.Size.message}", violation.getMessageTemplate());
 	}
-	
+
 	@Test
 	public void nameTooLong() {
 		CategoryDto category = new CategoryDto(ID_OK, StringUtil.ofLength(65), MIN_AGE_OK, MAX_AGE_OK, MIXED_OK);
-		
+
 		Set<ConstraintViolation<CategoryDto>> violations = validator.validate(category);
 
 		assertEquals(1, violations.size());
@@ -63,7 +63,7 @@ public class CategoryDtoTest {
 	@Test
 	public void nameIsNull() {
 		CategoryDto category = new CategoryDto(ID_OK, null, MIN_AGE_OK, MAX_AGE_OK, MIXED_OK);
-		
+
 		Set<ConstraintViolation<CategoryDto>> violations = validator.validate(category);
 
 		assertEquals(1, violations.size());
@@ -104,7 +104,7 @@ public class CategoryDtoTest {
 
 		assertEquals(1, violations.size());
 		ConstraintViolation<CategoryDto> violation = violations.iterator().next();
-		assertEquals("{MaxAgeGreaterThanMinAge.categoryDto.maxAge}",
+		assertEquals("{org.giste.spring.util.validation.Comparation.greaterOrEqual.message}",
 				violation.getMessageTemplate());
 	}
 
