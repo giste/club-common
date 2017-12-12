@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -34,12 +34,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.giste</groupId>
-			<artifactId>java-util</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.giste</groupId>
-			<artifactId>spring-util</artifactId>
+			<artifactId>giste-java-util</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
